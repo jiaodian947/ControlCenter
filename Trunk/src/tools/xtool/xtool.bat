@@ -1,0 +1,1 @@
+xtool.exe -p D:\home\work\worksvn\Server\Cons\Res\struct -o D:\home\work\worksvn\Server\FsGame\StructWrapper

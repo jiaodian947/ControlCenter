@@ -1,0 +1,21 @@
+{{template "base/base.html" .}} 
+{{template "base/base_common.html" .}} 
+{{define "meta"}}<title>{{i18n .Lang "auth.user_profile"}} -{{i18n .Lang "app_name"}} </title>{{end}} 
+{{define "body"}}
+<div class="layout">
+    {{template "base/topbar.html" .}}
+</div>
+<div class="am-container">
+    <div class="am-cf">
+        <div class="am-center">
+            {{if .flash.NeedActive}}
+            <span class="am-icon-warning"></span>
+            <h4>{{i18n .Lang "auth.need_active"}}</h4>
+            {{i18n .Lang "auth.need_active_message"}} {{else if .flash.RegSuccess}}
+            <span class="am-icon-check"></span>
+            <h4>{{i18n .Lang "auth.register_success"}}</h4>
+            {{i18n .Lang "auth.register_success_message"}} {{end}}
+        </div>
+    </div>
+</div>
+{{end}}

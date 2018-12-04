@@ -1,0 +1,30 @@
+{{template "base/base.html" .}}
+{{template "base/base_common_nonav.html" .}} 
+{{define "meta"}}
+<title>{{i18n .Lang "auth.active_email"}} -{{i18n .Lang "app_name"}} </title>
+{{end}} 
+{{define "body"}}
+<div class="register-container">
+    <div class="layout">
+        <div class="register-box">
+            {{if .Success}}
+            <h3>{{i18n .Lang "auth.active_success"}}</h3>
+            <hr>
+            <p>
+                {{i18n .Lang "auth.active_verified"}}
+                <br><br>
+                <a class="btn btn-default" href="{{.AppUrl}}settings/profile">{{i18n .Lang "auth.active_view_profile"}}</a>
+            </p>
+            {{else}}
+            <h3>{{i18n .Lang "auth.active_failed"}}</h3>
+            <hr>
+            <p>
+                {{i18n .Lang "auth.active_failed_reason"}}
+                <br><br>
+                <a class="btn btn-default btn-danger" href="{{.AppUrl}}settings/profile">{{i18n .Lang "auth.active_resend"}}</a>
+            </p>
+            {{end}}
+        </div>
+    </div>
+</div>
+{{end}}

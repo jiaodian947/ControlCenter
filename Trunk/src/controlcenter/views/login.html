@@ -1,0 +1,71 @@
+{{template "Header" .}}
+
+<body class="nobg loginPage">
+
+<!-- Top fixed navigation -->
+<div class="topNav">
+    <div class="wrapper">
+        <div class="userNav">
+            <ul>
+                <li><a href="#" title=""><img src="static/images/icons/topnav/mainWebsite.png" alt="" /><span>Main website</span></a></li>
+                <li><a href="#" title=""><img src="static/images/icons/topnav/profile.png" alt="" /><span>Contact admin</span></a></li>
+                <li><a href="#" title=""><img src="static/images/icons/topnav/messages.png" alt="" /><span>Support</span></a></li>
+                <li><a href="login?quit=true" title=""><img src="static/images/icons/topnav/settings.png" alt="" /><span>Settings</span></a></li>
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+
+<!-- Main content wrapper -->
+<div class="loginWrapper">
+    <div class="loginLogo"><img src="static/images/loginLogo.png" alt="" /></div>
+    <div class="widget">
+        <div class="title"><img src="static/images/icons/dark/files.png" alt="" class="titleIcon" /><h6>{{i18n .Lang "login.login"}}</h6></div>
+        <form action="login" id="validate" class="form" method="post">
+            <fieldset>
+                {{.once_html}}
+                <div class="formRow">
+                    <label for="login">{{i18n .Lang "login.user_name"}}:</label>
+                    <div class="formRight">
+                        <input type="text" name="UserName" class="validate[required]" id="UserName" />
+                        {{if .errname}}<label for="Password" generated="true" class="error">{{.errname}} {{end}}
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="formRow">
+                    <label for="pass">{{i18n .Lang "login.user_pass"}}:</label>
+                    <div class="formRight">
+                        <input type="password" name="Password" class="validate[required]" id="Password" />
+                        {{if .errpass}}<label for="Password" generated="true" class="error">{{.errpass}} {{end}}
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="formRow">
+                    <label for="pass">{{i18n .Lang "login.captcha"}}:</label>
+                    <div class="formRight">
+                        <input type="text" name="Captcha" class="validate[required]" id="Captcha" />
+                        {{if .errcaptcha}}<label for="Password" generated="true" class="error">{{.errcaptcha}} {{end}}
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="formRow">
+                    <div class="formRight">{{.captcha}}</div>
+                    <div class="clear"></div>
+                </div>
+                <div class="loginControl">
+                    <div class="rememberMe"><input type="checkbox" id="Remember" name="Remember" /><label for="remMe">{{i18n .Lang "login.remember"}}</label></div>
+                    <input type="submit" value="Log me in" class="dredB logMeIn" />
+                    <div class="clear"></div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>    
+
+{{template "Footer" .}}
+
+</body>
+</html>

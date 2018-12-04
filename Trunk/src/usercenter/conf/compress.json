@@ -1,0 +1,53 @@
+{
+    "Js": {
+        "SrcPath": "static_source/js",
+        "DistPath": "static/js",
+        "SrcURL": "static_source/js",
+        "DistURL": "static/js",
+        "Groups": {
+            "lib": {
+                "DistFile": "lib.min.js",
+                "SourceFiles": [
+                    "jquery-2.1.0.js",
+                    "amazeui.js"
+                ]
+            },
+            "app": {
+                "DistFile": "app.min.js",
+                "SourceFiles": [
+                    "common.js"
+                ]
+            }
+        }
+    },
+    "Css": {
+        "SrcPath": "static_source/css",
+        "DistPath": "static/css",
+        "SrcURL": "static_source/css",
+        "DistURL": "static/css",
+        "Groups": {
+            "lib": {
+                "DistFile": "lib.min.css",
+                "SourceFiles": [
+                    "amazeui.css"
+                ]
+            },
+            "app": {
+                "Name": "app",
+                "DistFile": "app.min.css",
+                "SourceFiles": [
+                    "about.css",
+                    "common.css",
+                    "contact.css",
+                    "example.css",
+                    "index.css",
+                    "join.css",
+                    "news.css",
+                    "other.css",
+                    "product.css",
+                    "solution.css"
+                ]
+            }
+        }
+    }
+}

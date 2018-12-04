@@ -1,0 +1,79 @@
+{{template "Header" .}}
+
+<body>
+
+<!-- Left side content -->
+{{template "LeftNav" .}}
+
+<!-- Right side -->
+<div id="rightSide">
+
+    <!-- Top fixed navigation -->
+    {{template "Nav" .}}
+    
+    <!-- Title area -->
+    <div class="titleArea">
+        <div class="wrapper">
+            <div class="pageTitle">
+                <h5>{{i18n .Lang "maple.game_manager"}}</h5>
+                <span>{{i18n .Lang "maple.game_list"}}</span>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    
+    <div class="line"></div>
+    
+    <!-- Main content wrapper -->
+    <div class="wrapper">
+    	<!-- Table with sortable columns -->
+        
+        <div class="widget rightTabs"> 
+            <div class="title"><img src="/static/images/icons/dark/frames.png" alt="" class="titleIcon" />
+            <h6>{{i18n .Lang "maple.game_list"}}</h6>
+            </div>
+            <ul class="tools">
+                <li><a href="/game/add">{{i18n .Lang "maple.add"}}</a></li>
+            </ul>
+            
+            <table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+                <thead>
+                    <tr>
+                        <td class="sortCol" width="8%"><div>{{i18n .Lang "maple.game_id"}}<span></span></div></td>
+                        <td class="sortCol"><div>{{i18n .Lang "maple.game_name"}}<span></span></div></td>
+                        <td class="sortCol"><div>{{i18n .Lang "maple.comment"}}<span></span></div></td>
+                        <td class="sortCol"><div>{{i18n .Lang "maple.game_secretkey"}}<span></span></div></td>
+                        <td width="14%"><div>{{i18n .Lang "maple.operate"}}</div></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{range $key, $game := .games}}
+                    <tr>
+                        <td>{{$game.Id}}</td>
+                        <td>{{$game.Name}}</td>
+                        <td>{{$game.Comment}}</td>
+                        <td>{{$game.SecretKey}}</td>
+                        <td >
+                            <ul class="toolset">
+                            <li><a href="/game/{{$game.Id}}" ><span >{{i18n $.Lang "maple.dis_view"}}</span></a></li>
+                            <li><a href="/game/{{$game.Id}}/add" ><span>{{i18n $.Lang "maple.dis_add"}}</span></a></li>
+                            <li><a href="/game/{{$game.Id}}/del" style="color:red" ><span>{{i18n $.Lang "maple.del"}}</span></a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    {{end}}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    
+    <!-- Footer line -->
+    {{template "Footer" .}}
+
+</div>
+
+<div class="clear"></div>
+
+</body>
+</html>

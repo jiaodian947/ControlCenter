@@ -1,0 +1,109 @@
+{
+	"version": 0,
+	"dependencies": [
+		{
+			"importpath": "github.com/StackExchange/wmi",
+			"repository": "https://github.com/StackExchange/wmi",
+			"vcs": "git",
+			"revision": "ea383cf3ba6ec950874b8486cd72356d007c768f",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/dgryski/go-quicklz",
+			"repository": "https://github.com/dgryski/go-quicklz",
+			"vcs": "git",
+			"revision": "d7042a82d57e43d91964729ccba0902a3e988332",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/go-ole/go-ole",
+			"repository": "https://github.com/go-ole/go-ole",
+			"vcs": "git",
+			"revision": "a41e3c4b706f6ae8dfbff342b06e40fa4d2d0506",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/golang/sys",
+			"repository": "https://github.com/golang/sys",
+			"vcs": "git",
+			"revision": "bf42f188b9bc6f2cf5b8ee5a912ef1aedd0eba4c",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/gonuts/commander",
+			"repository": "https://github.com/gonuts/commander",
+			"vcs": "git",
+			"revision": "f8ba4e959ca914268227c3ebbd7f6bf0bb35541a",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/gonuts/flag",
+			"repository": "https://github.com/gonuts/flag",
+			"vcs": "git",
+			"revision": "741a6cbd37a30dedc93f817e7de6aaf0ca38a493",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/lunny/log",
+			"repository": "https://github.com/lunny/log",
+			"vcs": "git",
+			"revision": "7887c61bf0de75586961948b286be6f7d05d9f58",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/lunny/tango",
+			"repository": "https://github.com/lunny/tango",
+			"vcs": "git",
+			"revision": "07d2a32dde13344dd752cad003dc3fd64066b9dd",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/oxtoacart/bpool",
+			"repository": "https://github.com/oxtoacart/bpool",
+			"vcs": "git",
+			"revision": "4e1c5567d7c2dd59fa4c7c83d34c2f3528b025d6",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/shirou/gopsutil",
+			"repository": "https://github.com/shirou/gopsutil",
+			"vcs": "git",
+			"revision": "234b6bc9b8fb4ecdf063e85e8cd84ee68f8a43dc",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/shirou/w32",
+			"repository": "https://github.com/shirou/w32",
+			"vcs": "git",
+			"revision": "bb4de0191aa41b5507caa14b0650cdbddcd9280b",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/tango-contrib/events",
+			"repository": "https://github.com/tango-contrib/events",
+			"vcs": "git",
+			"revision": "47d601abcefe008c049ab00d497767e20303bed3",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/tango-contrib/renders",
+			"repository": "https://github.com/tango-contrib/renders",
+			"vcs": "git",
+			"revision": "86dba79a024074292970f9222e8268ceec8b9049",
+			"branch": "master",
+			"notests": true
+		}
+	]
+}

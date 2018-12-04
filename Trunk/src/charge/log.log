@@ -1,0 +1,37 @@
+2017/11/28 14:05:59 TCP: listening on 192.168.1.12:6001
+2017/11/28 14:05:59 start works: 16
+2017/11/28 14:05:59 server started
+2017/11/28 14:06:49 TCP: new client(192.168.1.42:33109)
+2017/11/28 14:06:49 server has not normal closed
+2017/11/28 14:06:49 register server: 21 192.168.1.42:33109
+2017/11/28 14:06:49 send message to 1 , size:26
+2017/11/28 14:07:25 recv custom verify
+2017/11/28 14:07:25 recv msg: custom
+2017/11/28 14:07:25 verify order 1000000355318968
+2017/11/28 14:07:25 post data to https://buy.itunes.apple.com/verifyReceipt
+2017/11/28 14:07:32 recv custom verify
+2017/11/28 14:07:32 recv msg: custom
+2017/11/28 14:08:30 recv resp status 21007
+2017/11/28 14:08:30 post data to https://sandbox.itunes.apple.com/verifyReceipt
+2017/11/28 14:08:35 recv resp status 0
+2017/11/28 14:08:35 send message to 1 , size:61
+2017/11/28 14:08:35 recv custom confirm
+2017/11/28 14:08:35 recv msg: custom
+2017/11/28 14:08:35 confirm 1000000355318968
+2017/11/28 14:08:35 confirm 1000000355318968 complete
+2017/11/28 14:08:35 send message to 1 , size:62
+2017/11/28 14:12:18 recv custom verify
+2017/11/28 14:12:18 recv msg: custom
+2017/11/28 14:12:18 verify order 1000000355342699
+2017/11/28 14:12:18 post data to https://buy.itunes.apple.com/verifyReceipt
+2017/11/28 14:12:19 recv resp status 21007
+2017/11/28 14:12:19 post data to https://sandbox.itunes.apple.com/verifyReceipt
+2017/11/28 14:12:28 recv resp status 0
+2017/11/28 14:12:28 send message to 1 , size:61
+2017/11/28 14:12:28 recv custom confirm
+2017/11/28 14:12:28 recv msg: custom
+2017/11/28 14:12:28 confirm 1000000355342699
+2017/11/28 14:12:28 confirm 1000000355342699 complete
+2017/11/28 14:12:28 send message to 1 , size:62
+2017/11/28 14:31:19 server quit
+2017/11/28 14:31:19 TCP: closing 192.168.1.12:6001

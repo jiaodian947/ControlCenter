@@ -1,0 +1,109 @@
+{
+	"version": 0,
+	"dependencies": [
+		{
+			"importpath": "github.com/StackExchange/wmi",
+			"repository": "https://github.com/StackExchange/wmi",
+			"vcs": "git",
+			"revision": "cdffdb33acae0e14efff2628f9bae377b597840e",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/c9s/goprocinfo",
+			"repository": "https://github.com/c9s/goprocinfo",
+			"vcs": "git",
+			"revision": "0010a05ce49fde7f50669bc7ecda7d41dd6ab824",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/gizak/termui",
+			"repository": "https://github.com/gizak/termui",
+			"vcs": "git",
+			"revision": "e9a3a6b3d6472ce875254d734f36335c15ebd4e6",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/go-ole/go-ole",
+			"repository": "https://github.com/go-ole/go-ole",
+			"vcs": "git",
+			"revision": "a1ec82a652ebc7e784d7df887cfb31061aeabbcc",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/gonuts/commander",
+			"repository": "https://github.com/gonuts/commander",
+			"vcs": "git",
+			"revision": "f8ba4e959ca914268227c3ebbd7f6bf0bb35541a",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/gonuts/flag",
+			"repository": "https://github.com/gonuts/flag",
+			"vcs": "git",
+			"revision": "741a6cbd37a30dedc93f817e7de6aaf0ca38a493",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/matishsiao/goInfo",
+			"repository": "https://github.com/matishsiao/goInfo",
+			"vcs": "git",
+			"revision": "617e6440957ee5591c8912e8b7e2f03a86298722",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/mattn/go-runewidth",
+			"repository": "https://github.com/mattn/go-runewidth",
+			"vcs": "git",
+			"revision": "ce7b0b5c7b45a81508558cd1dba6bb1e4ddb51bb",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/nsf/termbox-go",
+			"repository": "https://github.com/nsf/termbox-go",
+			"vcs": "git",
+			"revision": "3e24a7b6661e09b87a9f49d693034219f81602fa",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/shirou/gopsutil",
+			"repository": "https://github.com/shirou/gopsutil",
+			"vcs": "git",
+			"revision": "63047d776e07105e370af46ecbd0ae96850f5ef2",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/shirou/w32",
+			"repository": "https://github.com/shirou/w32",
+			"vcs": "git",
+			"revision": "bb4de0191aa41b5507caa14b0650cdbddcd9280b",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/uber-common/cpustat",
+			"repository": "https://github.com/uber-common/cpustat",
+			"vcs": "git",
+			"revision": "79c1ebd00ceaea633e818915edc51fc11cbcb67a",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/zcalusic/sysinfo",
+			"repository": "https://github.com/zcalusic/sysinfo",
+			"vcs": "git",
+			"revision": "7a16547e0bde79fb8f37231cdcfc8cacef8d8fbb",
+			"branch": "master",
+			"notests": true
+		}
+	]
+}

@@ -1,0 +1,111 @@
+{{template "Header" .}}
+
+<body>
+
+<!-- Left side content -->
+{{template "LeftNav" .}}
+
+<!-- Right side -->
+<div id="rightSide">
+
+    <!-- Top fixed navigation -->
+    {{template "Nav" .}}
+    <!-- Title area -->
+    <div class="titleArea">
+        <div class="wrapper">
+            <div class="pageTitle">
+                <h5><a href="/game" >{{i18n .Lang "maple.game"}}</a>-<a href="/game/{{.gameid}}" >[{{.gamename}}]</a>[{{.districtname}}]{{i18n .Lang "maple.server_manager"}}</h5>
+                <span>[{{.gamename}}-{{.districtname}}]{{i18n .Lang "maple.server_list"}}.</span>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    
+    <div class="line"></div>
+    
+    <!-- Main content wrapper -->
+    <div class="wrapper">
+
+    	<!-- Table with sortable columns -->
+        
+        <div class="widget rightTabs"> 
+            <div class="title"><img src="/static/images/icons/dark/frames.png" alt="" class="titleIcon" />
+            <h6>{{i18n .Lang "maple.server_list"}}</h6>
+            </div>
+            <ul class="tools">
+                <li><a href="/game/{{.gameid}}/{{.districtid}}/add">{{i18n .Lang "maple.add"}}</a></li>
+            </ul>
+            
+            <table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+                <thead>
+                    <tr>
+                        <td class="sortCol" width="8%"><div>{{i18n .Lang "maple.server_id"}}<span></span></div></td>
+                        <td class="sortCol" width="15%"><div>{{i18n .Lang "maple.server_name"}}<span></span></div></td>
+                        <td class="sortCol" width="10%"><div>{{i18n .Lang "maple.server_ip"}}<span></span></div></td>         
+                        <td class="sortCol" width="8%"><div>{{i18n .Lang "maple.server_players"}}<span></span></div></td>
+                        <td class="sortCol" width="6%"><div>{{i18n .Lang "maple.server_status"}}<span></span></div></td>
+                        <td class="sortCol"><div>{{i18n .Lang "maple.comment"}}<span></span></div></td>
+                        <td width="20%"><div>{{i18n .Lang "maple.operate"}}</div></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{range $key, $server := .servers}}
+                    <tr>
+                        <td>{{$server.Id}}</td>
+                        <td>{{$server.ServerName}}</td>
+                        <td>{{$server.ServerIp}}:{{$server.ServerPort}}</td>
+                        <td>{{$server.PlayerCount}}/{{$server.PlayerMaxCount}}</td>
+                        <td>{{i18nformatkey $.Lang "maple.status_%d" $server.ServerStatus}}</td>
+                        <td>{{$server.Comment}}</td>
+                        <td >
+                            <ul class="toolset">
+                                <li><a href="/game/{{$server.GameId}}/{{$server.DistrictId}}/{{$server.Id}}/edit" ><span >{{i18n $.Lang "maple.edit"}}</span></a></li>
+                                <li><a href="/game/{{$server.GameId}}/{{$server.DistrictId}}/{{$server.Id}}?op=close" ><span >{{i18n $.Lang "maple.status_0"}}</span></a></li>
+                                <li><a href="/game/{{$server.GameId}}/{{$server.DistrictId}}/{{$server.Id}}?op=open" ><span >{{i18n $.Lang "maple.open"}}</span></a></li>
+                                <li><a href="/game/{{$server.GameId}}/{{$server.DistrictId}}/{{$server.Id}}?op=maintain" ><span >{{i18n $.Lang "maple.status_2"}}</span></a></li>
+                                <li><a href="/game/{{$server.GameId}}/{{$server.DistrictId}}/{{$server.Id}}/del" style="color:red" ><span>{{i18n $.Lang "maple.del"}}</span></a></li>                            
+                            </ul>
+                        </td>
+                    </tr>
+                    {{end}}
+                </tbody>
+            </table>
+            {{if gt .paginator.PageNums 1}}
+            <div style="border-top: 1px solid #D5D5D5">
+                <div class="dataTables_paginate fg-buttonset ui-buttonset fg-buttonset-multi ui-buttonset-multi paging_full_numbers">
+                    {{if .paginator.HasPrev}}
+                        <span class="toFirst ui-corner-tl ui-corner-bl fg-button ui-button "><a href="{{.paginator.PageLinkFirst}}">{{i18n .Lang "paginator.first_page"}}</a></span>
+                        <span class="previous fg-button ui-button"><a href="{{.paginator.PageLinkPrev}}">&lt;</a></span>
+
+                    {{else}}
+                        <span class="toFirst ui-corner-tl ui-corner-bl fg-button ui-button ui-state-disabled">{{i18n .Lang "paginator.first_page"}}</span>
+                        <span class="previous fg-button ui-button ui-state-disabled">&lt;</span>
+                    {{end}}
+                    <span>
+                    {{range $index, $page := .paginator.Pages}}
+                        <span class="fg-button ui-button {{if $.paginator.IsActive .}}  ui-state-disabled {{end}}"><a href="{{$.paginator.PageLink $page}}">{{$page}}</a></span>
+                    {{end}}
+                    </span>
+                    {{if .paginator.HasNext}}
+                        <span class="next fg-button ui-button"><a href="{{.paginator.PageLinkNext}}">&gt;</a></span>
+                        <span class="last ui-corner-tr ui-corner-br fg-button ui-button"><a href="{{.paginator.PageLinkLast}}">{{i18n .Lang "paginator.last_page"}}</span>
+                    {{else}}
+                        <span class="next fg-button ui-button ui-state-disabled"><a href="{{.paginator.PageLinkNext}}">&gt;</a></span>
+                        <span class="last ui-corner-tr ui-corner-br fg-button ui-button ui-state-disabled"><a href="{{.paginator.PageLinkLast}}">{{i18n .Lang "paginator.last_page"}}</span>
+                    {{end}}
+                </div>
+            </div>
+            {{end}}
+        </div>
+
+    </div>
+    
+    <!-- Footer line -->
+    {{template "Footer" .}}
+
+</div>
+
+<div class="clear"></div>
+
+</body>
+</html>

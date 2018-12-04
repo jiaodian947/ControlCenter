@@ -1,0 +1,13 @@
+{
+	"version": 0,
+	"dependencies": [
+		{
+			"importpath": "github.com/dgryski/go-quicklz",
+			"repository": "https://github.com/dgryski/go-quicklz",
+			"vcs": "git",
+			"revision": "d7042a82d57e43d91964729ccba0902a3e988332",
+			"branch": "master",
+			"notests": true
+		}
+	]
+}

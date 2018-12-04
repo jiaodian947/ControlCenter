@@ -1,0 +1,21 @@
+{
+	"version": 0,
+	"dependencies": [
+		{
+			"importpath": "github.com/mysll/go-spew",
+			"repository": "https://github.com/mysll/go-spew",
+			"vcs": "git",
+			"revision": "8991bc29aa16c548c550c7ff78260e27b9ab7c73",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/mysll/toolkit",
+			"repository": "https://github.com/mysll/toolkit",
+			"vcs": "git",
+			"revision": "47b931cae835393eb6968f243baccd09dac76344",
+			"branch": "master",
+			"notests": true
+		}
+	]
+}

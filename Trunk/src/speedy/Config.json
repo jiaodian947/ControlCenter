@@ -1,0 +1,52 @@
+{
+  "gameid": "1",
+  "language": "CN",
+  "debug": "true",
+  "trace": "true",
+  "globalxml": "true",
+  "createguide": "false",
+  "timeoutbeat": 90000,
+  "hotfixenable": 0,
+  "heartbeat": 50,
+  "fps": "false",
+  "stateservergroup": 0,
+  "poolreleasetime": 30,
+  "hdgremotedebug": "true",
+  "reconnectinterval": 5,
+  "reconnectcount": 4,
+  "resserver": "http://192.168.1.180/ServerRes/Naruto/StandaloneWindow",
+  "serverstatus": "http://116.62.19.223:8081/api/maple/",
+  "serverstatuskey": "Phhtj9LnRBe7DCi8cDfk0vm1GXQKWvNK",
+  "erroruploadpath": "http://116.62.19.223:8081/log/upload",
+  "qualityconfig": "http://192.168.1.180/1.0.0/UnityEditor/Quality.json",
+  "forceupdate": {
+    "forceupdate": "false",
+    "version": "1.0.0",
+    "url": "http://www.sininm.com"
+  },
+  "gvoice": {
+    "gvoiceAppId": "1767092650",
+    "gvoiceAppKey": "78a85e13c4b84f2625f622617f7d7784",
+    "gvoiceServer": "cn.voice.gcloudcs.com"
+  },
+  "tp2": {
+    "tp2gameid": 19185,
+    "tp2appkey": "ea8eeec81a4b299f6ce4c24dff6bc4a0"
+  },
+  "Bugly": {
+    "android": "817d69571e",
+    "iphone": "568efbb485"
+  },
+  "ActivityAnnouncement": {
+    "ActivityNumber": [
+      {
+        "imapath": "http://ku.90sjimg.com/element_origin_min_pic/16/11/22/03bc6592de7e45b877f4c751770d41f4.jpg",
+        "key": 1
+      },
+      {
+        "imapath": "http://ku.90sjimg.com/element_origin_min_pic/16/11/22/03bc6592de7e45b877f4c751770d41f4.jpg",
+        "key": 2
+      }
+    ]
+  }
+}

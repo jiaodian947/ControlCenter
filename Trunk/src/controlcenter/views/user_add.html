@@ -1,0 +1,100 @@
+{{template "Header" .}}
+
+<body>
+
+<!-- Left side content -->
+{{template "LeftNav" .}}
+
+
+<!-- Right side -->
+<div id="rightSide">
+
+    <!-- Top fixed navigation -->
+    {{template "Nav" .}}
+    
+    <!-- Title area -->
+    <div class="titleArea">
+        <div class="wrapper">
+            <div class="pageTitle">
+                <h5>增加人员</h5>
+                <span>增加新人员</span>
+            </div>
+            <div class="middleNav">
+                <ul>
+                    <li class="mUser"><a href="#" title=""><span class="users"></span></a>
+                        <ul class="mSub1">
+                            <li><a href="#" title="">Add user</a></li>
+                            <li><a href="#" title="">Statistics</a></li>
+                            <li><a href="#" title="">Orders</a></li>
+                        </ul>
+                    </li>
+                    <li class="mMessages"><a href="#" title=""><span class="messages"></span></a>
+                        <ul class="mSub2">
+                            <li><a href="#" title="">New tickets<span class="numberRight">8</span></a></li>
+                            <li><a href="#" title="">Pending tickets<span class="numberRight">12</span></a></li>
+                            <li><a href="#" title="">Closed tickets</a></li>
+                        </ul>
+                    </li>
+                    <li class="mFiles"><a href="#" title="Or you can use a tooltip" class="tipN"><span class="files"></span></a></li>
+                    <li class="mOrders"><a href="#" title=""><span class="orders"></span><span class="numberMiddle">8</span></a>
+                        <ul class="mSub4">
+                            <li><a href="#" title="">Pending uploads</a></li>
+                            <li><a href="#" title="">Statistics</a></li>
+                            <li><a href="#" title="">Trash</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    
+    <div class="line"></div>
+    
+    <!-- Main content wrapper -->
+    <div class="wrapper">           
+        
+    <form id="validate" class="form" method="post" action="">
+        	<fieldset>
+                {{.once_html}}
+                <div class="widget">
+                    <div class="title"><img src="/static/images/icons/dark/alert.png" alt="" class="titleIcon" /><h6>人员信息</h6></div>
+                    <div class="formRow">
+                        <label>用户名:<span class="req">*</span></label>
+                        <div class="formRight"><input type="text" class="validate[required]" name="UserName" id="UserName"/></div><div class="clear"></div>
+                    </div>
+                    <div class="formRow">
+                        <label>昵称:<span class="req">*</span></label>
+                        <div class="formRight"><input type="text" class="validate[required]" name="NickName" id="NickName"/></div><div class="clear"></div>
+                    </div>
+                    <div class="formRow">
+                        <label>Email:<span class="req">*</span></label>
+                        <div class="formRight"><input type="text" class="validate[required, custom[email]" name="Email" id="Email"/></div><div class="clear"></div>
+                    </div>
+                    <div class="formRow">
+                        <label>密码:<span class="req">*</span></label>
+                        <div class="formRight"><input type="password" class="validate[required]" name="PassWord" id="PassWord" /></div><div class="clear"></div>
+                    </div>
+                    <div class="formRow">
+                        <label>重复密码:<span class="req">*</span></label>
+                        <div class="formRight"><input type="password" class="validate[required,equals[PassWord]]" name="password2" id="password2" /></div><div class="clear"></div>
+                    </div>                   
+                    <div class="formSubmit"><input type="submit" value="submit" class="redB" /></div>
+                    <div class="clear"></div>
+                </div>
+                
+            </fieldset>
+        </form>      
+
+    </div>
+    
+    <!-- Footer line -->
+    {{template "Footer" .}}
+
+</div>
+
+<div class="clear"></div>
+
+</body>
+</html>

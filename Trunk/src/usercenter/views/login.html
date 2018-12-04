@@ -1,0 +1,41 @@
+{{template "base/base.html" .}}
+{{template "base/base_common_nonav.html" .}}
+{{define "meta"}}<title>{{i18n .Lang "login"}} -{{i18n .Lang "app_name"}} </title>{{end}}
+{{define "body"}}
+<div class="login-container">
+  {{template "base/topbar.html" .}} 
+  <div class="login-box">
+    <legend>{{i18n .Lang "login"}}</legend>
+    <form action="" class="am-form" data-am-validator method="POST">
+      {{.once_html}}
+      <div class="am-form-group">
+        <label for="doc-vld-name-1"><i class="am-icon-user"></i></label>
+        <input type="text" name="UserName" id="doc-vld-name-1" minlength="3" placeholder="输入用户名" required/>
+        {{if .errname}}<span>{{.errname}}</span>{{end}} 
+      </div>
+
+      <div class="am-form-group">
+        <label for="doc-vld-password"><i class="am-icon-key"></i></label>
+        <input type="password" name="Password" id="doc-vld-password" placeholder="输入密码" required/>
+      </div>
+
+      <div class="am-form-group">
+        <label for="doc-vld-captcha"><i class="am-icon-edit"></i></label>
+        <input type="text" name="Captcha" id="doc-vld-captcha" placeholder="输入下面的验证码" required/>
+        {{if .errcaptcha}}<span>{{.errcaptcha}}</span>{{end}} 
+      </div>
+
+      <div class="am-form-group">
+          {{.captcha}}
+      </div>
+
+      <div class="am-checkbox">
+        <input type="checkbox" id="Remember" name="Remember" />记住我
+      </div>
+
+      <button class="am-btn am-btn-secondary"  type="submit">登录</button>
+    </form>
+  </div>
+</div>
+{{end}}
+

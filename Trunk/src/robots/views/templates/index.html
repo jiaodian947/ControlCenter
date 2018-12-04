@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Super Robot</title>
+    <meta name="description" content="Super Robot">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Super Robot" />
+    <script src="assets/js/echarts.min.js"></script>
+    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="assets/css/amazeui.datatables.min.css" />
+    <link rel="stylesheet" href="assets/css/app.css">
+    <script src="assets/js/jquery.min.js"></script>
+
+</head>
+
+<body data-type="index">
+    <script src="assets/js/theme.js"></script>
+    <div class="am-g tpl-g">
+        <!-- 头部 -->
+        <header>
+            <!-- logo -->
+            <div class="am-fl tpl-header-logo">
+
+            </div>
+            <!-- 右侧内容 -->
+            <div class="tpl-header-fluid">
+                <!-- 侧边切换 -->
+                <div class="am-fl tpl-header-switch-button am-icon-list">
+                    <span>
+
+                </span>
+                </div>
+                <!-- 搜索 -->
+                <div class="am-fl tpl-header-search">
+                    <form class="tpl-header-search-form" action="javascript:;">
+                        <button class="tpl-header-search-btn am-icon-search"></button>
+                        <input class="tpl-header-search-box" type="text" placeholder="搜索内容...">
+                    </form>
+                </div>
+                <!-- 其它功能-->
+                <div class="am-fr tpl-header-navbar">
+                    <ul>
+                        <!-- 欢迎语 -->
+                        <li class="am-text-sm tpl-header-navbar-welcome">
+                            <a href="javascript:;">欢迎使用, <span>超级机器人</span> </a>
+                        </li>
+
+                        <!-- 退出 -->
+                        <li class="am-text-sm">
+                            <a href="javascript:;" id="btn-quit">
+                                <span class="am-icon-sign-out"></span> 退出
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </header>
+        <!-- 风格切换 -->
+        <div class="tpl-skiner">
+            <div class="tpl-skiner-toggle am-icon-cog">
+            </div>
+            <div class="tpl-skiner-content">
+                <div class="tpl-skiner-content-title">
+                    服务器设置
+                </div>
+                <form class="am-form tpl-form-line-form" id="serverinfo">
+                    <div class="am-form-group">
+                        <input type="text" class="tpl-form-input" name="serverip" id="serverip" placeholder="服务器地址">
+                    </div>
+                    <div class="am-form-group">
+                        <input type="text" class="tpl-form-input" name="serverport" id="serverport" value="2001" placeholder="端口号">
+                    </div>
+
+                    <div class="am-form-group">
+                        <input type="text" class="tpl-form-input" name="serverid" id="serverid" placeholder="服务器ID">
+                    </div>
+                    <div class="am-form-group">
+                        <button type="button" id="server-submit" class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">确定</button>
+                    </div>
+                </form>
+            </div>
+            <div class="tpl-skiner-content">
+                <div class="tpl-skiner-content-title">
+                    机器人设置
+                </div>
+                <form class="am-form tpl-form-line-form" id="robotinfo">
+                    <div class="am-form-group">
+                        <input type="text" class="tpl-form-input" name="account_prefix" id="account_prefix" value="test" placeholder="帐号前缀">
+                    </div>
+                    <div class="am-form-group">
+                        <input type="text" class="tpl-form-input" name="account_start" id="account_start" value="1" placeholder="帐号编号起始">
+                    </div>
+                    <div class="am-form-group">
+                        <input type="text" class="tpl-form-input" name="password" id="password" value="123" placeholder="密码">
+                    </div>
+                    <div class="am-form-group">
+                        <input type="text" class="tpl-form-input" name="name_prefix" id="name_prefix" value="机器人" placeholder="字名前缀">
+                    </div>
+                    <div class="am-form-group">
+                        <input type="text" class="tpl-form-input" name="robot_count" id="robot_count" placeholder="数量">
+                    </div>
+                    <div class="am-form-group">
+                        <button type="button" id="robot-submit" class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">确定</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- 侧边导航栏 -->
+        <div class="left-sidebar">
+            <!-- 用户信息 -->
+            <div class="tpl-sidebar-user-panel">
+                <div class="tpl-user-panel-slide-toggleable">
+                    <div class="tpl-user-panel-profile-picture">
+                        <img src="assets/img/user04.png" alt="">
+                    </div>
+                    <span class="user-panel-logged-in-text">
+              <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>
+              超级机器人
+          </span>
+                    <a href="javascript:;" class="tpl-user-panel-action-link"> <span class="am-icon-pencil"></span> 设置</a>
+                </div>
+            </div>
+
+            <!-- 菜单 -->
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav-heading">Super Robot<span class="sidebar-nav-heading-info"> 快捷操作</span></li>
+                <li class="sidebar-nav-link">
+                    <a href="/" class="active">
+                        <i class="am-icon-home sidebar-nav-link-logo"></i> 首页
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+        <!-- 内容区域 -->
+        <div class="tpl-content-wrapper">
+
+            <div class="container-fluid am-cf">
+                <div class="row">
+                    <div class="am-u-sm-12 am-u-md-12 am-u-lg-9">
+                        <div class="page-header-heading"><span class="am-icon-home page-header-heading-icon"></span> 控制面板 <small>Super Robot</small></div>
+                        <p class="page-header-description">设置机器人属性，查看报表。</p>
+                    </div>
+                    <div class="am-u-lg-3 tpl-index-settings-button">
+                        <button type="button" class="page-header-button" id="btn-start"> 启动</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row-content am-cf">
+                <div class="row  am-cf">
+                    <div class="am-u-sm-12 am-u-md-12 am-u-lg-4">
+                        <div class="widget am-cf">
+                            <div class="widget-head am-cf">
+                                <div class="widget-title am-fl">机器人信息</div>
+                                <div class="widget-function am-fr">
+                                    <!-- <a href="javascript:;" class="am-icon-cog"></a> -->
+                                </div>
+                            </div>
+                            <div class="widget-body am-fr">
+                                <div class="am-fl">
+                                    <div class="widget-fluctuation-period-text" id="robot-total">
+                                        0
+                                    </div>
+                                    <div class="widget-fluctuation-description-text am-text-right">
+                                        总数
+                                    </div>
+                                </div>
+                                <div class="am-fr am-cf">
+                                    <div class="widget-fluctuation-description-amount text-success" id="robot-connected" am-cf>
+                                        0
+                                    </div>
+                                    <div class="widget-fluctuation-description-text am-text-right">
+                                        已连接
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4">
+                        <div class="widget widget-primary am-cf">
+                            <div class="widget-statistic-header">
+                                游戏中
+                            </div>
+                            <div class="widget-statistic-body">
+                                <div class="widget-statistic-value" id="robot-ready">
+                                    0
+                                </div>
+                                <div class="widget-statistic-description">
+                                    在场景中的机器人数量
+                                </div>
+                                <span class="widget-statistic-icon am-icon-support"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4">
+                        <div class="widget widget-purple am-cf">
+                            <div class="widget-statistic-header">
+                                异常
+                            </div>
+                            <div class="widget-statistic-body">
+                                <div class="widget-statistic-value" id="robot-errors">
+                                    0
+                                </div>
+                                <div class="widget-statistic-description">
+                                    出错的机器人数量
+                                </div>
+                                <span class="widget-statistic-icon am-icon-support"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row am-cf">
+                    <div class="am-u-sm-12 am-u-md-8">
+                        <div class="widget am-cf">
+                            <div class="widget-head am-cf">
+                                <div class="widget-title am-fl">CPU监控</div>
+                                <div class="widget-function am-fr">
+                                    <a href="javascript:;" class="am-icon-cog"></a>
+                                </div>
+                            </div>
+                            <div class="widget-body-md widget-body tpl-amendment-echarts am-fr" id="tpl-echarts">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="am-u-sm-12 am-u-md-4">
+                        <div class="widget am-cf">
+                            <div class="widget-head am-cf">
+                                <div class="widget-title am-fl">服务器负载</div>
+                                <div class="widget-function am-fr">
+                                    <a href="javascript:;" class="am-icon-cog"></a>
+                                </div>
+                            </div>
+                            <div class="widget-body widget-body-md am-fr">
+
+                                <div class="am-progress-title">CPU负载 <span class="am-fr am-progress-title-more" id="cpuinfo">0% / 100%</span></div>
+                                <div class="am-progress">
+                                    <div class="am-progress-bar" style="width: 0%" id="pgs-cpuinfo"></div>
+                                </div>
+                                <div class="am-progress-title">内存负载 <span class="am-fr am-progress-title-more" id="meminfo">0% / 100%</span></div>
+                                <div class="am-progress">
+                                    <div class="am-progress-bar" style="width: 0%" id="pgs-meminfo"></div>
+                                </div>
+                                <div class="am-progress-title">网络负载 <span class="am-fr am-progress-title-more" id="netinfo">recv:0/send:0</span></div>
+                                <div class="am-progress">
+                                    <div class="am-progress-bar" style="width: 0%" id="pgs-netinfo"></div>
+                                </div>
+                                <div class="am-progress">
+                                    <div class="am-progress-bar" style="width: 0%" id="pgs-netinfo-recv"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row am-cf">
+                    <div class="am-u-sm-12 am-u-md-12 am-u-lg-8 widget-margin-bottom-lg">
+                        <div class="widget am-cf widget-body-lg">
+                            <div class="widget-body  am-fr">
+                                <div class="am-scrollable-horizontal ">
+                                    <table width="100%" class="am-table am-table-compact am-text-nowrap tpl-table-black ">
+                                        <thead>
+                                            <tr>
+                                                <th width="200px">操作类型</th>
+                                                <th width="350px">参数</th>
+                                                <th>返回结果</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="op-table">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="am-u-sm-12 am-u-md-12 am-u-lg-4 widget-margin-bottom-lg ">
+                        <div class="widget am-cf widget-body-lg">
+                            <div class="widget-head am-cf">
+                                <div class="widget-title am-fl">机器人操作</div>
+                                <div class="widget-function am-fr">
+                                    <a href="javascript:;" class="am-icon-cog"></a>
+                                </div>
+                            </div>
+                            <div class="widget-body widget-body-md am-fr">
+                                <div class="tpl-table-black-operation">
+                                    <!-- enter_clone_scene_details -->
+                                    <a href='javascript:sendCommand("stop_ninja_arena","");'>
+                                        <i class="am-icon-group"></i> 停止忍者竞技
+                                    </a>
+                                    <a href='javascript:sendCommand("ninja_arena","");'>
+                                        <i class="am-icon-group"></i> 同时忍者竞技
+                                    </a>
+                                    <a href='javascript:sendCommand("submit_quest","");'>
+                                        <i class="am-icon-group"></i> 同时完成任务
+                                    </a>
+                                    <a href='javascript:sendCommand("accept_quest","");'>
+                                        <i class="am-icon-group"></i> 同时接受任务
+                                    </a>
+                                    <a href='javascript:;' id='cmd-scenemove'>
+                                        <i class="am-icon-group"></i> 切场景+移动
+                                    </a>
+                                    <a href='javascript:sendCommand("stop_scene_move","");'>
+                                        <i class="am-icon-group"></i> 停止切场景+移动
+                                    </a>
+                                    <a href='javascript:;' id='cmd-multiscene'>
+                                        <i class="am-icon-group"></i> 进入组队副本
+                                    </a>
+                                    <a href='javascript:sendCommand("createteam","");'>
+                                        <i class="am-icon-group"></i> 组队
+                                    </a>
+                                    <a href='javascript:sendCommand("pk","");'>
+                                        <i class="am-icon-magic"></i> 切磋
+                                    </a>
+                                    <a href='javascript:sendCommand("group_pk","");'>
+                                        <i class="am-icon-remove"></i> 40v40pk
+                                    </a>
+                                    <a href='javascript:sendCommand("team_pk","");'>
+                                        <i class="am-icon-remove"></i> 5V5pk
+                                    </a>
+                                    <a href='javascript:;' id='cmd-scenelist'>
+                                        <i class="am-icon-group"></i> 进入具体副本
+                                    </a>
+                                    <a href='javascript:sendCommand("add_exp","");'>
+                                        <i class="am-icon-plus"></i> 增加经验
+                                    </a>
+                                    <a href='javascript:sendCommand("rich","");'>
+                                        <i class="am-icon-money"></i> 大富翁
+                                    </a>
+                                    <a href='javascript:sendCommand("recover","");'>
+                                        <i class="am-icon-heart"></i> 一键恢复
+                                    </a>
+                                    <a href='javascript:sendCommand("power_up","");'>
+                                        <i class="am-icon-arrow-up"></i> 一键变强
+                                    </a>
+                                    <a href='javascript:sendCommand("power_down","");'>
+                                        <i class="am-icon-arrow-down"></i> 一键变弱
+                                    </a>
+                                    <br/>
+                                    <a href='javascript:;' id="cmd-switch">
+                                        <i class="am-icon-spinner"></i> 切场景
+                                    </a>
+                                    <a href='javascript:;' id="cmd-moveto">
+                                        <i class="am-icon-map-marker"></i> 瞬移
+                                    </a>
+
+                                    <a href='javascript:sendCommand("begin_move","");'>
+                                        <i class="am-icon-random"></i> 移动
+                                    </a>
+                                    <a href='javascript:sendCommand("stop_move","");'>
+                                        <i class="am-icon-stop"></i> 停止移动
+                                    </a>
+                                    <a href='javascript:sendCommand("begin_chat","");'>
+                                        <i class="am-icon-comments"></i> 聊天
+                                    </a>
+                                    <a href='javascript:sendCommand("stop_chat","");'>
+                                        <i class="am-icon-comments-o"></i> 停止聊天
+                                    </a>
+                                    <br/>
+                                    <a href='javascript:sendCommand("begin_attack","");'>
+                                        <i class="am-icon-magic"></i> 战斗
+                                    </a>
+                                    <a href='javascript:sendCommand("stop_attack","");'>
+                                        <i class="am-icon-remove"></i> 停止战斗
+                                    </a>
+                                    <a href='javascript:sendCommand("all_open","");'>
+                                        <i class="am-icon-unlock"></i> 副本全开
+                                    </a>
+                                    <a href='javascript:sendCommand("enter_clone_scene","");'>
+                                        <i class="am-icon-sign-in"></i> 进入副本
+                                    </a>
+                                    <a href='javascript:sendCommand("quit_clone_scene","");'>
+                                        <i class="am-icon-sign-out"></i> 退出副本
+                                    </a>
+                                    <br/>
+                                    <a href='javascript:sendCommand("enter_15v15","");'>
+                                        <i class="am-icon-sign-in"></i> 15V15匹配
+                                    </a>
+                                    <a href='javascript:sendCommand("quit_15v15","");'>
+                                        <i class="am-icon-sign-out"></i> 退出15V15
+                                    </a>
+                                    <br/>
+                                    <a href='javascript:sendCommand("buy","");'>
+                                        <i class="am-icon-shopping-cart"></i> 购物
+                                    </a>
+                                    <a href='javascript:sendCommand("refresh_mall","");'>
+                                        <i class="am-icon-refresh"></i> 刷新商店
+                                    </a>
+                                    <a href='javascript:sendCommand("draw_prize","");'>
+                                        <i class="am-icon-forward"></i> 十连抽
+                                    </a>
+                                    <br/>
+                                    <a href='javascript:;' id='cmd-guild'>
+                                        <i class="am-icon-group"></i> 加入公会
+                                    </a>
+                                    <a href='javascript:sendCommand("quit_guild","");'>
+                                        <i class="am-icon-remove"></i> 退出公会
+                                    </a>
+                                    <br/>
+                                    <a href='javascript:;' id='cmd-custom'>
+                                        <i class="am-icon-group"></i> 发送消息
+                                    </a>
+                                    <a href='javascript:;' id='cmd-gm'>
+                                        <i class="am-icon-group"></i> 发送GM
+                                    </a>
+                                    <a href='javascript:msgbox("提示", "千万别手贱");' class="tpl-table-black-operation-del">
+                                        <i class="am-icon-warning"></i> 别点
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row am-cf">
+                    <div class="am-u-sm-12 am-u-md-12 am-u-lg-12 widget-margin-bottom-lg">
+                        <div class="widget am-cf">
+                            <div class="widget-body  am-fr">
+                                <div class="am-scrollable-horizontal ">
+                                    <table width="100%" class="am-table am-table-compact am-text-nowrap tpl-table-black">
+                                        <thead>
+                                            <tr>
+                                                <th>错误信息</th>
+                                                <th>帐号</th>
+                                                <th>角色</th>
+                                                <th>编号</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="err-table">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt-select">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd" id="my-prompt-select_title"></div>
+            <div class="am-modal-bd">
+                <span id="my-prompt-select_info"></span>
+                <select id="js-selected" data-am-selected>
+                    <option value=""></option>
+                </select>
+                <!-- <div class="am-g am-g-fixed">
+                    <div class="am-u-sm-6">
+                        <span id="my-prompt_info_1"></span>
+                    </div>
+                    <div class="am-u-sm-6">
+                        <span id="my-prompt_info_2"></span>
+                    </div>
+                    <div class="am-u-sm-6">
+                        <select id="js-selected" data-am-selected>
+                            <option value=""></option>
+                        </select>
+                    </div>
+                    <div class="am-u-sm-6">
+                        <input type="text" class="am-modal-prompt-select-input">
+                    </div>
+                </div> -->
+
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn" id="my-prompt-select-cancel">取消</span>
+                <span class="am-modal-btn" id="my-prompt-select-confirm">提交</span>
+            </div>
+        </div>
+    </div>
+    <div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd" id="my-prompt_title"></div>
+            <div class="am-modal-bd">
+                <span id="my-prompt_info"></span>
+                <input type="text" class="am-modal-prompt-input">
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn" id="my-prompt-cancel">取消</span>
+                <span class="am-modal-btn" id="my-prompt-confirm">提交</span>
+            </div>
+        </div>
+    </div>
+    <div class="am-modal am-modal-alert" tabindex="-1" id="alert-box">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">提示</div>
+            <div class="am-modal-bd" id="alert-box-msg">
+                Hello world！
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn">确定</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd" id="confirm-msg-title">退出</div>
+            <div class="am-modal-bd" id="confirm-msg">
+
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+                <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/amazeui.min.js"></script>
+    <script src="assets/js/amazeui.datatables.min.js"></script>
+    <script src="assets/js/dataTables.responsive.min.js"></script>
+    <script src="assets/js/app.js"></script>
+
+</body>
+
+</html>

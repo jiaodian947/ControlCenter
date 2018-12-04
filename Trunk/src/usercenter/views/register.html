@@ -1,0 +1,93 @@
+{{template "base/base.html" .}}
+{{template "base/base_common_nonav.html" .}}
+{{define "meta"}}<title>{{i18n .Lang "register"}} -{{i18n .Lang "app_name"}} </title>{{end}}
+{{define "body"}}
+<div class="register-container">
+    <div class="layout">
+        {{template "base/topbar.html" .}} 
+        <!--===========layout-container================-->
+        <div class="register-box">
+            <form action="" class="am-form" data-am-validator method="post">
+                {{.once_html}}
+                <fieldset>
+                    <legend>注册用户
+                        <p class="register-info">邮箱将接收确认邮件，请核对后填入正确信息。</p>
+                        <p>{{.errormsg}}</p>
+                    </legend>
+
+                    <div class="am-form-group">
+                        <div class="am-g">
+                            <div class="am-u-md-2 am-padding-0 am-text-right">
+                                <label for="doc-vld-name-2" class="register-name">账号</label>
+                            </div>
+                            <div class="am-u-md-10">
+                                <input type="text" name="UserName" id="doc-vld-name-2" minlength="3" placeholder="输入用户名（至少 3 个字符）" required/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <div class="am-g">
+                            <div class="am-u-md-2 am-padding-0 am-text-right">
+                                <label for="doc-vld-email-1" class="register-name">邮箱</label>
+                            </div>
+                            <div class="am-u-md-10">
+                                <input type="email" name="Email" id="doc-vld-email-1" minlength="6" placeholder="输入邮箱" required/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <div class="am-g">
+                            <div class="am-u-md-2 am-padding-0 am-text-right">
+                                <label for="doc-vld-pwd-1" class="register-pwd">密码</label>
+                            </div>
+                            <div class="am-u-md-10">
+                                <input type="password" name="PassWord" id="doc-vld-pwd-1" placeholder="请输入6~32位密码(字母,数字,_)" pattern="^\w{6,32}$" required/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <div class="am-g">
+                            <div class="am-u-md-2 am-padding-0 am-text-right">
+                                <label for="doc-vld-pwd-2">确认密码</label>
+                            </div>
+                            <div class="am-u-md-10">
+                                <input type="password" id="doc-vld-pwd-2" placeholder="请与上面输入的值一致" data-equal-to="#doc-vld-pwd-1" required/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <div class="am-g">
+                            <div class="am-u-md-2 am-padding-0 am-text-right">
+                                <label for="doc-vld-captcha">验证码</label>
+                            </div>
+                            <div class="am-u-md-10">
+                                <input type="text" name="Captcha" id="doc-vld-captcha" required/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <div class="am-g">
+                            <div class="am-u-md-2 am-padding-0 am-text-right">
+                            </div>
+                            <div class="am-u-md-10">
+                                {{.captcha}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="am-g">
+                        <div class="am-u-md-10">
+                            <button class="am-btn am-btn-secondary" type="submit">注册</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+{{end}}

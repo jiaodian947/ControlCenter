@@ -1,0 +1,104 @@
+<Rules type="merge" version="1.0.1.3" discription="合服规则">
+	<!-- 执行merge任务的线程池配置 -->
+	<!-- init_threads线程池初始线程的数量 max_threads线程池最大线程数 inc_threads任务太多增加线程时，每次新增的线程数 -->
+	<ThreadInfos init_threads="16" max_threads="32" inc_threads="4"/>
+	<!-- 主库 从库 目标库 -->
+	<DBInfos task="CheckDatabase">
+		<DBInfo name="master" connect_string="sa:abc@tcp(192.168.1.180:3306)/sininm_game?charset=utf8"/>
+		<DBInfo name="slave" connect_string="sa:abc@tcp(192.168.1.180:3306)/nx_merge_test?charset=utf8"/>
+		<DBInfo name="target" connect_string="sa:abc@tcp(192.168.1.180:3306)/nx_merge?charset=utf8"/>
+	</DBInfos>
+	<!-- 待合并的表 -->
+	<!-- 表格合并支持一下mode (只针对不需要resolve的表格) -->
+	<!-- "insert" : slave表追加到master表里 -->
+	<!-- insert_cols : 对于配置和合并列的，slave表的每行只拷贝指定列到master表 -->
+	<!-- "master" : 只使用master表的数据 -->
+	<!-- "empty" : 只创建表，不使用master和slave表的数据 -->
+	<Tables>
+		<!-- insert mode -->
+		<Table name="player_roles" mode="insert" />
+		<Table name="player_binary" mode="insert" />
+		<Table name="player_property" mode="insert" />
+		<Table name="tb_domains" mode="insert" />
+		<Table name="tb_guilds" mode="insert" />
+		<!-- insert mode with insert_cols -->
+		<!--Table name="table3" mode="insert" insert_cols="" condition=""	/-->
+		<!-- master mode -->
+		<!-- empty mode -->
+	</Tables>
+	<!-- 要check的值冲突的列 -->
+	<Conflict>
+		<Table name="player_roles">
+			<Column name="s_rolename" value="%s(天下第一)" id="role_name" />
+			<Column name="n_roleid" value="" func="createuid" id="role_id" />
+		</Table>
+		<Table name="player_binary" refer="player_roles" />
+		<Table name="player_property" refer="player_roles" />
+		<Table name="tb_domains">
+			<Column name="n_sdid" func="createuid" id="domain_id" />
+		</Table>
+		<Table name="tb_guilds">
+			<Column name="n_sdid" func="createuid" id="guild_id" />
+		</Table>
+	</Conflict>
+	<!-- 解决冲突配置,检查下面的表，把名字冲突的修改成对应的格式 -->
+	<!-- Conflict的表必须是Resolve表的子集 -->
+	<!-- Merge的表必须是Resolve表的子集 -->
+	<!-- GameObj 玩家对象二进制数据 GameData 公共数据对象二进制数据 -->
+	<Resolve>
+		<Table name="player_roles">
+			<Column name="s_rolename" value="role_name" />
+			<Column name="n_roleid" value="role_id" />
+		</Table>
+		<Table name="player_binary">
+			<Column name="n_roleid" value="role_id" />
+			<Column name="lb_save_data">
+				<GameObj>
+					<GameAttr name="Name" value="role_name" />
+					<GameAttr name="RGuid" value="role_id" />
+					<GameRec name="test">
+						<GameCol index="0" value="" />
+					</GameRec>
+				</GameObj>
+			</Column>
+		</Table>
+		<Table name="player_property">
+			<Column name="n_roleid" value="role_id" />
+		</Table>
+		<Table name="tb_domains">
+			<Column name="n_sdid" value="domain_id" />
+		</Table>
+		<Table name="tb_guilds">
+			<Column name="n_sdid" value="guild_id" />
+		</Table>
+	</Resolve>
+	<!--Table的合并有两种模式 -->
+	<!-- insert: 合并表的配置列，非配置列直接追加到主表 -->
+	<!-- merge: 只合并表的配置列,非配置列丢弃 -->
+	<!--表(GameRec)的合并有三种模式 -->
+	<!-- insert:把从表插入到主表后面 -->
+	<!-- master:只使用主表数据 -->
+	<!-- clear:清空表 -->
+	<!-- 如果表(GameRec)没有配mode，则使用GameData配置的默认def_rec_mode -->
+	<!--表(GameRec)的参数说明 -->
+	<!-- sort: 合并后的目标数据需要按key指定的列排序,des:降序 asc:升序 -->
+	<!-- key:配合sort使用，排序的列index -->
+	<!-- export:为true，需要先导出配置列的数值到xml里 -->
+	<!--属性(GameAttr)的合并有两种种模式-->
+	<!-- add: 把从属性累加到主属性上 -->
+	<!-- master:只使用主属性数据-->
+	<Merge>
+		<Table name="tb_guilds" mode="insert">
+			<Column key="GuildCommonPubdata" name="lb_save_data">
+				<GameData def_rec_mode="insert">
+				</GameData>
+			</Column>
+		</Table>
+		<Table name="tb_domains" mode="merge">
+		</Table>
+	</Merge>
+	<!--数据合并后单独执行的sql -->
+	<SQLS>
+		<SQL sql="update player_property set n_letter_id = 0" />
+	</SQLS>
+</Rules>
